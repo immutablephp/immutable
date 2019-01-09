@@ -1,4 +1,4 @@
-# Immutable/immutable
+# immutablephp/immutable
 
 Provides immutable value objects and an immutable value bag, along with a base
 immutable class for your own objects.
