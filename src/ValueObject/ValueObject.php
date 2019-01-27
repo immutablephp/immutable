@@ -31,11 +31,21 @@ abstract class ValueObject extends Immutable implements JsonSerializable
         return $object;
     }
 
+    public function __debugInfo() : array
+    {
+        return $this->getArrayCopy();
+    }
+
     public function jsonSerialize()
     {
-        $properties = get_object_vars($this);
-        unset($properties['__INITIALIZED__']);
-        return $properties;
+        return $this->getArrayCopy();
+    }
+
+    public function getArrayCopy() : array
+    {
+        $copy = get_object_vars($this);
+        unset($copy['__INITIALIZED__']);
+        return $copy;
     }
 
     public function throwInvalidValueException($name, $expect, $value) : void

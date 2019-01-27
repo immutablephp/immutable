@@ -59,6 +59,19 @@ class Bag extends Immutable implements ArrayAccess, Countable, IteratorAggregate
         return $this->data;
     }
 
+    public function getArrayCopy() : array
+    {
+        $copy = [];
+        foreach ($this->data as $key => $value) {
+            if ($value instanceof Immutable) {
+                $copy[$key] = $value->getArrayCopy();
+            } else {
+                $copy[$key] = $value;
+            }
+        }
+        return $copy;
+    }
+
     public function with($key, $value) : self
     {
         $clone = clone $this;
