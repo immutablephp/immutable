@@ -84,4 +84,11 @@ class BagTest extends \PHPUnit\Framework\TestCase
         $this->assertNotSame($old, $new);
         $this->assertFalse(isset($old->irk));
     }
+
+    public function testJsonSerialize()
+    {
+        $bag = new Bag(['foo' => 'bar']);
+        $actual = json_encode($bag);
+        $this->assertSame('{"foo":"bar"}', $actual);
+    }
 }
