@@ -20,14 +20,6 @@ class HttpUri extends Uri
         parent::__construct();
     }
 
-    /**
-     * @return HttpUri
-     */
-    public function withScheme(string $scheme) : Uri
-    {
-        return $this->withParts(['scheme' => $scheme]);
-    }
-
     public function getHost() : string
     {
         return $this->host;
@@ -61,6 +53,11 @@ class HttpUri extends Uri
     public function getFragment() : ?string
     {
         return $this->fragment;
+    }
+
+    public function withScheme(string $scheme) : Uri
+    {
+        return $this->withParts(['scheme' => $scheme]);
     }
 
     public function withHost(string $host) : HttpUri

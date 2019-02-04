@@ -31,11 +31,6 @@ abstract class ValueObject extends Immutable implements JsonSerializable
         return $object;
     }
 
-    public function __debugInfo() : array
-    {
-        return $this->getArrayCopy();
-    }
-
     public function jsonSerialize()
     {
         return $this->getArrayCopy();
