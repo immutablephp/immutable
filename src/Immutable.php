@@ -27,8 +27,6 @@ abstract class Immutable
         throw ImmutableObjectException::new($this);
     }
 
-    abstract public function getArrayCopy() : array;
-
     final public function offsetSet($key, $value)
     {
         throw ImmutableObjectException::new($this);

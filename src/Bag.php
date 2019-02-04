@@ -29,11 +29,6 @@ class Bag extends Immutable implements ArrayAccess, Countable, IteratorAggregate
         return isset($this->data[$key]);
     }
 
-    public function __debugInfo() : array
-    {
-        return $this->data;
-    }
-
     public function offsetExists($key)
     {
         return isset($this->data[$key]);
@@ -57,19 +52,6 @@ class Bag extends Immutable implements ArrayAccess, Countable, IteratorAggregate
     public function jsonSerialize()
     {
         return $this->data;
-    }
-
-    public function getArrayCopy() : array
-    {
-        $copy = [];
-        foreach ($this->data as $key => $value) {
-            if ($value instanceof Immutable) {
-                $copy[$key] = $value->getArrayCopy();
-            } else {
-                $copy[$key] = $value;
-            }
-        }
-        return $copy;
     }
 
     public function with($key, $value) : self
