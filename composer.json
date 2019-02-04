@@ -1,8 +1,10 @@
 {
     "name": "immutablephp/immutable",
-    "description": "Immutable base object, bag, and value objects.",
+    "description": "Immutable base objects, value objects, and value bag.",
     "license": "MIT",
-    "require": {},
+    "require": {
+        "php": ">=7.2.0"
+    },
     "autoload": {
         "psr-4": {
             "Immutable\\": "src/"
