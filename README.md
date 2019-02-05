@@ -100,7 +100,7 @@ class Address extends ValueObject
         string $region,
         string $postcode
     ) {
-        $this->withChanged($street, $city, $state, $zip);
+        $this->withChanged($street, $city, $region, $postcode);
         parent::__construct();
     }
 
